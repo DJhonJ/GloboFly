@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.smartherd.globofly.R
+import com.djhonj.globofly.R
+import models.Comment
 import models.Destination
 
-class DestinationAdapter(private val destinationList: List<Destination>) : RecyclerView.Adapter<DestinationAdapter.ViewHolder>() {
+class DestinationAdapter(private val destinationList: List<Comment>) : RecyclerView.Adapter<DestinationAdapter.ViewHolder>() {
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -21,7 +22,8 @@ class DestinationAdapter(private val destinationList: List<Destination>) : Recyc
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
 		holder.destination = destinationList[position]
-		holder.txvDestination.text = destinationList[position].city
+		//holder.txvDestination.text = destinationList[position].city
+		holder.txvDestination.text = destinationList[position].email
 
 		holder.itemView.setOnClickListener { v ->
 			val context = v.context
@@ -36,10 +38,10 @@ class DestinationAdapter(private val destinationList: List<Destination>) : Recyc
 		return destinationList.size
 	}
 
-	class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+	inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 		val txvDestination: TextView = itemView.findViewById(R.id.txv_destination)
-		var destination: Destination? = null
+		var destination: Comment? = null
 
 		override fun toString(): String {
 			return """${super.toString()} '${txvDestination.text}'"""

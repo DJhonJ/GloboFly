@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.smartherd.globofly.R
+import com.djhonj.globofly.R
 import helpers.SampleData
 import models.Destination
 import kotlinx.android.synthetic.main.activity_destiny_detail.*
